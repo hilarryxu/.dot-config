@@ -1,0 +1,67 @@
+[ui]
+username = Larry Xu <hilarryxu@gmail.com>
+editor = vim
+ignore = ~/.hgignore_global
+commitsubrepos = False
+
+[extensions]
+bookmarks =
+color =
+
+[diff]
+git = True
+unified = 5
+
+[color]
+status.modified = cyan
+status.added = green
+status.removed = red
+status.deleted = yellow bold underline
+status.unknown = magenta bold underline
+status.ignored = black bold
+diff.diffline = none
+diff.extended = cyan
+diff.file_a = red
+diff.file_b = green
+diff.hunk = yellow bold
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = white_background
+
+[alias]
+# Common
+st = status -SC
+? = summary
+fdiff = diff -U 10000000000000
+qfdiff = qdiff -U 10000000000000
+
+# Merge with default.
+md = merge default
+
+# Commit message shortcuts.
+cm = commit -m
+cus = commit -m 'Update subrepository state.'
+cmm = commit -m 'Merge.'
+cws = commit -m 'Whitespace.'
+
+# Merge shortcuts.
+mergelocal = !$HG --config ui.merge=internal:local merge $@
+mergeother = !$HG --config ui.merge=internal:other merge $@
+mergefail = !$HG --config ui.merge=internal:fail merge $@
+
+# Shortcuts to resolve merge conflicts by taking one side or the other.
+takelocal = !"$HG" revert --rev 'p1()' $@ && "$HG" resolve -m $@
+takeother = !"$HG" revert --rev 'p2()' $@ && "$HG" resolve -m $@
+
+# Diff.
+d = diff -p --color=auto
+
+# Run a colored diff and pipe it to less.
+dl = !"$HG" diff -p --color=always $@ | less -R
+
+# Simple glog command that doesn't look bad and doesn't require my CLI templates.
+gl = log -l10 --template='\033[0;33m{rev}\033[0m {desc|firstline|strip} \033[0;35m{branches}\033[0m \033[0;33m{tags}\033[0m\n\033[1;30m({date|age} by {author|person})\033[0m\n\n'
+
+ack = !$HG locate "set:not ignored()" | xargs ack $@
+grep-wdir = !$HG locate "set:not ignored()" | xargs grep $@

@@ -6,6 +6,7 @@ ignore = [
   '.gitmodules',
   '*.swp',
   '*.pyc',
+  '.tmuxp.yaml',
   'install.sh',
   'tiny.vim',
   'README.md'

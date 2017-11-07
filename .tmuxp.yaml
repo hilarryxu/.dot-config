@@ -1,0 +1,21 @@
+session_name: dot-configs
+start_directory: ./
+windows:
+- window_name: dot-configs
+  layout: main-horizontal
+  focus: true
+  panes:
+  - focus: true
+  - pane
+  - pane
+  options:
+    main-pane-height: 35
+- window_name: .vim
+  layout: main-horizontal
+  start_directory: ~/.vim
+  panes:
+  - focus: True
+  - pane
+  - pane
+  options:
+    main-pane-height: 35

@@ -43,7 +43,7 @@ if [[ $? != 0 ]]; then
 fi
 
 if [ ! -d $HOME/.dot-config ]; then
-  git clone --recursive https://github.com/tony/.dot-config ~/.dot-config
+  git clone --recursive https://github.com/hilarryxu/.dot-config ~/.dot-config
 fi
 ln -sf ~/.dot-config/.dotfilesrc ~/.dotfilesrc
 
